@@ -21,7 +21,9 @@ const COLORS = [
   { colorName: 'Green', hexCode: '#859900' },
 ];
 
-const ColorPalette = () => {
+const ColorPalette = ({ route }) => {
+  const { colors } = route.params;
+
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>
@@ -29,7 +31,7 @@ const ColorPalette = () => {
       </Text>
       <FlatList
         style={styles.container}
-        data={COLORS}
+        data={colors}
         keyExtractor={(item) => item.colorName}
         renderItem={({ item }) => (
           <ColorBox hexCode={item.hexCode} colorName={item.colorName} />
